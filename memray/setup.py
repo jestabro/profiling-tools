@@ -5,7 +5,7 @@ setup(
     version="1.1.0",
     author="VyOS maintainers and contributors",
     author_email="maintainers@vyos.net",
-    python_requires=">=3.7",
+    python_requires=">=3.9",
     license="BSD",
     url="http://www.vyos.io",
     packages=["memray"],
