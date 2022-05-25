@@ -3,8 +3,32 @@ This is a debian package wrapping memray:
 
 https://bloomberg.github.io/memray/index.html
 
+using dh_virtualenv. To update requirements.txt, use pip-compile from the
+pypi pip-tools package:
+
+pip-compile requirements.in > requirements.txt
+
 To build on debian:
 
 dpkg-buildpackage -uc -us -tc -b
 
 For VyOS builds in Docker, mv the resulting packages to vyos-build/packages.
+
+An example from the memray repo is included, 'mandelbrot.py', for which the
+package numpy is required in the above requirements.in.
+Example discussion:
+https://bloomberg.github.io/memray/examples/README.html
+
+Running the example with this package on VyOS is as follows:
+
+/usr/share/memray/bin/memray run mandelbrot.py
+
+one can then view a summary:
+
+/usr/share/memray/bin/memray summary memray-mandelbrot.py.*.bin
+
+or generate a flamegraph:
+
+/usr/share/memray/bin/memray flamegraph memray-mandelbrot.py.*.bin
+
+This can be generalized to analyze, for example, vyos-configd.
