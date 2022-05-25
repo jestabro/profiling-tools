@@ -1,0 +1,28 @@
+
+smem/smemcap/smemstat are standard packages on Debian bullseye:
+https://www.selenic.com/smem/
+
+Overview here:
+https://www.tecmint.com/smem-linux-memory-usage-per-process-per-user/
+
+(unfortunately, the article 'guide ...' linked in the above is not live.)
+
+It is an older tool, but still useful for showing a realistic share of
+memory. It can be added to VyOS by adding to vyos-build/data/defaults.json
+'custom_packages'.
+
+One wants at least:
+"custom_packages": ["smem", "smemcap"]
+
+To use:
+
+smem can be used as root to output various statistics; see second link above
+for discussion of options.
+
+For a nice pie chart:
+
+On VyOS system, as root:
+smemcap  > memcap.tar
+
+On any system with smem and matplotlib:
+smem --pie=command -S memcap.tar
