@@ -1,0 +1,10 @@
+
+This is a debian package wrapping memray:
+
+https://bloomberg.github.io/memray/index.html
+
+To build on debian:
+
+dpkg-buildpackage -uc -us -tc -b
+
+For VyOS builds in Docker, mv the resulting packages to vyos-build/packages.
